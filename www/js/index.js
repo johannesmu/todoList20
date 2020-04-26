@@ -10,8 +10,13 @@ var app = {
 
         document.addEventListener('resume', this.resumeListener.bind(this), false); 
         
-        //application events
+        //Listen for a click on a list item
+        $( "todo_list" ).click(openList).bind(this);
 
+    },
+
+    openList(){
+        alert("LIST OPENED");
     },
 
     // deviceready Event Handler

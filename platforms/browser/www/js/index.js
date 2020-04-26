@@ -10,10 +10,13 @@ var app = {
 
         document.addEventListener('resume', this.resumeListener.bind(this), false); 
         
+        //Listen for a click on a list item
+        $( "todo_list" ).click(openList).bind(this);
 
-        //application events
+    },
 
-        
+    openList(){
+        alert("LIST OPENED");
     },
 
     // deviceready Event Handler
@@ -31,6 +34,7 @@ var app = {
     pauseListener: function(){
         // alert("ON PAUSE");
         // save state here when user switches app
+        // 
     },
 
     resumeListener: function(){

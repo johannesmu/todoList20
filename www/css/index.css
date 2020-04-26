@@ -1,3 +1,7 @@
-.list-item {
+.list_item {
     width: 80%
+}
+
+#list_item {
+    color: dimgrey;
 }
