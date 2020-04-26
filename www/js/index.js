@@ -10,10 +10,8 @@ var app = {
 
         document.addEventListener('resume', this.resumeListener.bind(this), false); 
         
-
         //application events
 
-        
     },
 
     // deviceready Event Handler
@@ -31,6 +29,7 @@ var app = {
     pauseListener: function(){
         // alert("ON PAUSE");
         // save state here when user switches app
+        // 
     },
 
     resumeListener: function(){
