@@ -1,7 +1,43 @@
-.list_item {
-    width: 80%
+.header{
+    text-align: center;
+    background-color: dimgrey;
+    color: dodgerblue;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    width: 100%;
+
 }
 
-#list_item {
+.list_item {
+    width: 80%;
+    color: #999;
+    padding: 10px;
+    height: 150px;
+    border: solid 1px #666;
+}
+
+#todo_list {
     color: dimgrey;
+}
+
+.container {
+    width: 100%;
+    background-color: gray;
+    text-align: center;
+}
+
+.addButton {
+    text-align: center;
+    font-size: 45px;
+    padding: 15px;
+    color: wheat;
+    background-color: green;
+    border: black;
+    border-radius: 50%;
+}
+
+.bottomButtons {
+    position: fixed;
+    bottom: 0;
+    align-items: center;
 }

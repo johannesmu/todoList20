@@ -43,53 +43,63 @@
         <title>To Do!</title>
     </head>
     <body>
-        <div class="container">
-            <!-- First page -->
-            <!-- LISTS header -->
-            <div>
-
-            </div>
-            <!-- list of lists -->
-            
-            <div class="row">
-                <button id="todo_list">Buy Groceries</button>
-                <div class="col-sm-4 list_item" id="todo_list">
-                    <h3>Buy Groceries </h3>
+        <div class="app">
+            <div class="container">
+                <div class="header">
+                    <h1>TO DO</h1>
                 </div>
-                <div class="col-sm-4 list-item">
-                    <h3>Clean the house</h3>
+                <!-- First page -->
+                <!-- LISTS header -->
+                <div>
+                    <h1>Lists</h1>
                 </div>
-                <div class="col-sm-4 list-item">
-                    <h3>List 3</h3>
+                <!-- list of lists -->
+                
+                <div class="row">
+                    <div class="col-sm-4 listItem btn" id="todoList">
+                        <h3>Buy Groceries </h3>
+                    </div>
+                    <div class="col-sm-4 btn">
+                        <h3>Clean the house</h3>
+                    </div>
+                    <div class="col-sm-4 btn" id="">
+                        <h3>List 3</h3>
+                    </div>
                 </div>
-            </div>
-            <!-- buttons at the bottom-->
-            <div>
+                <button id = "setLocalStorage">SET LOCAL STORAGE</button>
+                <button id = "showLocalStorage">SHOW LOCAL STORAGE</button>
+                <button id = "removeProjectFromLocalStorage">REMOVE PROJECT</button>
+                <button id = "getLocalStorageByKey">GET BY KEY</button>
 
-            </div>
-            <!-- END OF FIRST PAGE!!! -->
-             
-            
-
-
-            <!-- Second page, selected list-->
-            <!-- list name-->
-            <div>
-
-            </div>
-            <!-- list tasks -->
-            <div>
-
-            </div>
-            <!-- buttons at the bottom -->
-            <div>
-
-            </div>
-            <!-- END OF SECOND PAGE -->
-
-
-          </div>
+                <!-- buttons at the bottom-->
+                <div class="bottomButtons">
+                    <button class="addButton" id="addButton" onclick="createDivElement();">+</button>
+                </div>
+                <!-- END OF FIRST PAGE!!! -->
+                 
+                
+    
+    
+                <!-- Second page, selected list-->
+                <!-- list name-->
+                <div>
+    
+                </div>
+                <!-- list tasks -->
+                <div>
+    
+                </div>
+                <!-- buttons at the bottom -->
+                <div>
+    
+                </div>
+                <!-- END OF SECOND PAGE -->
+    
+    
+              </div>
+        </div>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
     </body>
+
 </html>

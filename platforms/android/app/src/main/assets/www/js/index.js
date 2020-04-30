@@ -4,18 +4,34 @@ var app = {
         
         //cordova specific events
         document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
-        document.addEventListener('deviceready', this.testMethod.bind(this), false);
+        //document.addEventListener('deviceready', this.testMethod.bind(this), false);
 
         document.addEventListener('pause', this.pauseListener.bind(this), false);
 
         document.addEventListener('resume', this.resumeListener.bind(this), false); 
         
+        //Listen for a click on a list item
 
-        //application events
+        document.getElementsByClassName("todoList").addEventListener('click', this.openList.bind(this));
+        //$( "#todo_list" ).click(this.openList).bind(this);
+        document.getElementById("addButton").addEventListener('click', this.createDiv.bind(this));
 
-        
     },
 
+    openList: function(){
+        alert("LIST OPENED");
+    },
+
+
+    createDiv: function() {
+
+        var divElement = document.createElement("div");
+        divElement.id = "todoList";
+        divElement.className = "listItem";
+        divElement.innerHTML = "Hello World!";
+        document.body.appendChild(divElement);
+
+    },    
     // deviceready Event Handler
     //
     // Bind any cordova events here. Common events are:
@@ -26,16 +42,18 @@ var app = {
 
     testMethod: function(){
         alert("TESTING! :O");
+        
     },
     
     pauseListener: function(){
-        alert("ON PAUSE");
-        //save state here when user switches app
+        // alert("ON PAUSE");
+        // save state here when user switches app
+        // 
     },
 
     resumeListener: function(){
-        //Resume the saved state and reload the UI with the saved data
-        alert("ON RESUME");
+        // Resume the saved state and reload the UI with the saved data
+        // alert("ON RESUME");
     },
 
 
