@@ -13,6 +13,21 @@ var app = {
 
     },
 
+    deviceReady: function(){
+        //create the file if it does not exist, then read its content. 
+        
+    },
+    
+    pauseListener: function(){
+        // alert("ON PAUSE");
+        // save the todo list to file here
+    },
+
+    resumeListener: function(){
+        // load the todo list to the array here and display it
+        // alert("ON RESUME");
+    },
+
     openList: function(){
         alert("LIST OPENED");
     },
@@ -23,23 +38,11 @@ var app = {
         
     },
 
-    deviceReady: function(){
-        //create the file if it does not exist, then read its content. 
+
+
+    /* 
         
-
-    },
-    
-    pauseListener: function(){
-        // alert("ON PAUSE");
-        // save state here when user switches app
-        // 
-    },
-
-    resumeListener: function(){
-        // Resume the saved state and reload the UI with the saved data
-        // alert("ON RESUME");
-    },
-
+    */
 
     
 };
