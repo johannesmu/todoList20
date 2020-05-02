@@ -9,7 +9,7 @@ var app = {
         
         
 
-        $( "#addButton" ).click(this.testMethod);
+        $( "#addButton" ).click(this.addTask);
 
     },
 
@@ -25,7 +25,7 @@ var app = {
      
         function successCallback(fs) {
            fs.root.getFile('todo.txt', {create: true, exclusive: true}, function(fileEntry) {
-              alert('File creation successfull!')
+              alert('File created!')
            }, errorCallback);
         }
      
@@ -44,20 +44,31 @@ var app = {
         // alert("ON RESUME");
     },
 
-    openList: function(){
-        alert("LIST OPENED");
-    },
 
 
-    testMethod: function(){
-        alert("TESTING! :O");
-        
+    addTask: function(){
+        var task = $('#newTask').val();
+            
+        $("#todoList").append('<input type="checkbox" /> ' + task + '<br />');
+        $("#newTask").val("");
     },
 
 
 
     /* 
-        
+        $('#addCheckbox').click(function() {
+        var text = $('#newCheckText').val();
+        $('#checkboxes').append('<input type="checkbox" /> ' + text + '<br />');
+        });
+
+
+
+        //Get
+        var bla = $('#txt_name').val();
+
+        //Set
+        $('#txt_name').val(bla);
+
     */
 
     
