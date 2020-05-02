@@ -1,11 +1,11 @@
 {
   "background_color": "#FFF",
   "display": "standalone",
-  "name": "HelloCordova",
-  "short_name": "HelloCordova",
-  "version": "io.cordova.hellocordova",
-  "description": "A sample Apache Cordova application that responds to the deviceready event.",
-  "author": "Apache Cordova Team",
+  "name": "To Do App",
+  "short_name": "To Do App",
+  "version": "io.cordova.todoapp",
+  "description": "A simple To Do Application",
+  "author": "Tim Haeggqvist Luotomaeki",
   "icons": [],
   "start_url": "index.html"
 }

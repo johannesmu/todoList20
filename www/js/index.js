@@ -15,9 +15,25 @@ var app = {
 
     deviceReady: function(){
         //create the file if it does not exist, then read its content. 
-        
+       
     },
     
+    createFile: function() {
+        var type = window.TEMPORARY;
+        var size = 5*1024*1024;
+        window.requestFileSystem(type, size, successCallback, errorCallback)
+     
+        function successCallback(fs) {
+           fs.root.getFile('todo.txt', {create: true, exclusive: true}, function(fileEntry) {
+              alert('File creation successfull!')
+           }, errorCallback);
+        }
+     
+        function errorCallback(error) {
+           alert("ERROR: " + error.code)
+        }
+         
+    },
     pauseListener: function(){
         // alert("ON PAUSE");
         // save the todo list to file here
