@@ -1,33 +1,66 @@
 var app = {
     // Application Constructor
     initialize: function() {
-        document.addEventListener('deviceready', this.onDeviceReady.bind(this), this.stupidMethod.bind(this), false);
+        
+        //Cordova specific events
+        document.addEventListener('deviceready', this.deviceReady.bind(this), false);
+        document.addEventListener('pause', this.pauseListener.bind(this), false);
+        document.addEventListener('resume', this.resumeListener.bind(this), false); 
+        
+        
+
+        $( "#addButton" ).click(this.testMethod);
+
     },
 
-    // deviceready Event Handler
-    //
-    // Bind any cordova events here. Common events are:
-    // 'pause', 'resume', etc.
-    onDeviceReady: function() {
-        this.receivedEvent('deviceready');
-    },
-
-    stupidMethod: function(){
-        alert("Stupid Method?????");
+    deviceReady: function(){
+        //create the file if it does not exist, then read its content. 
+       
     },
     
+    createFile: function() {
+        var type = window.TEMPORARY;
+        var size = 5*1024*1024;
+        window.requestFileSystem(type, size, successCallback, errorCallback)
+     
+        function successCallback(fs) {
+           fs.root.getFile('todo.txt', {create: true, exclusive: true}, function(fileEntry) {
+              alert('File creation successfull!')
+           }, errorCallback);
+        }
+     
+        function errorCallback(error) {
+           alert("ERROR: " + error.code)
+        }
+         
+    },
+    pauseListener: function(){
+        // alert("ON PAUSE");
+        // save the todo list to file here
+    },
 
-    // Update DOM on a Received Event
-    receivedEvent: function(id) {
-        var parentElement = document.getElementById(id);
-        var listeningElement = parentElement.querySelector('.listening');
-        var receivedElement = parentElement.querySelector('.received');
+    resumeListener: function(){
+        // load the todo list to the array here and display it
+        // alert("ON RESUME");
+    },
 
-        listeningElement.setAttribute('style', 'display:none;');
-        receivedElement.setAttribute('style', 'display:block;');
+    openList: function(){
+        alert("LIST OPENED");
+    },
 
-        console.log('Received Event: ' + id);
-    }
+
+    testMethod: function(){
+        alert("TESTING! :O");
+        
+    },
+
+
+
+    /* 
+        
+    */
+
+    
 };
 
 app.initialize();
