@@ -8,8 +8,9 @@ var app = {
         document.addEventListener('resume', this.resumeListener.bind(this), false); 
         
         
-
-        $( "#addButton" ).click(this.addTask);
+        
+        $( "#addButton" ).click(this.addTodo);
+        $( "#deleteButton").click(this.deleteTodo);
 
     },
 
@@ -46,14 +47,27 @@ var app = {
 
 
 
-    addTask: function(){
-        var task = $('#newTask').val();
-            
-        $("#todoList").append('<input type="checkbox" /> ' + task + '<br />');
-        $("#newTask").val("");
+    addTodo: function(){
+        var todoTitle = $('#newTodo').val();
+        
+        //Create a div with id todo
+        // var todoDiv = document.createElement('div');
+        // todoDiv.id = 'task';
+        // var todoCheckbox = document.createElement('input');
+        // todoCheckbox.type = "checkbox";
+        // var todoLabel = document.createElement('label');
+        // todoLabel.title = todoTitle;
+        // todoDiv.appendChild(todoCheckbox);
+        // todoDiv.appendChild(todoLabel);
+        //$("#todoList").append(todoDiv);    
+        $("#todoList").append('<input type="checkbox" id="todoItem"/> ' + todoTitle + '<br />');
+        $("#newTodo").val("");
     },
 
-
+    deleteTodo: function(){
+  
+        
+    }
 
     /* 
         $('#addCheckbox').click(function() {
