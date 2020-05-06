@@ -10,19 +10,24 @@
 
         <title>To Do!</title>
     </head>
-    <body>
-        <header>
-            <h1>To Do App!</h1>
+    <body class="app-view">
+        <header class="app-header">
+            <!-- <h1>To Do App!</h1> -->
+            <h1>To do</h1>
+            <form id="todo-form">
+                <input name="todo" type="text" placeholder="what do you need to do?">
+                <button type="submit">&plus;</button>
+            </form>
         </header>
         <div data-role="page" class="app">
-           <div id="todoList">
+           <ul id="todolist">
 
-           </div>
+           </ul>
         </div>
         <footer>
-            <input id="newTodo" placeholder="What do you need to do?">
+            <!-- <input id="newTodo" placeholder="What do you need to do?">
             <button id="addButton" class="ui-btn ui-shadow">Add Task</button>
-            <button id="deleteButton" class="ui-btn ui-shadow">Delete Completed</button>
+            <button id="deleteButton" class="ui-btn ui-shadow">Delete Completed</button> -->
         </footer>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
