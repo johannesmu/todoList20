@@ -10,7 +10,8 @@ var app = {
         
         
         $( "#addButton" ).click(this.addTodo);
-        //$( "#deleteButton").click(this.deleteTodo);
+        $( "#deleteButton" ).click(this.deleteTodo);
+        //$( "#todoItem" ).click();
 
     },
 
@@ -39,7 +40,6 @@ var app = {
         // alert("ON PAUSE");
         // save the todo list to file here
     },
-
     resumeListener: function(){
         // load the todo list to the array here and display it
         // alert("ON RESUME");
@@ -60,12 +60,20 @@ var app = {
         // todoDiv.appendChild(todoCheckbox);
         // todoDiv.appendChild(todoLabel);
         //$("#todoList").append(todoDiv);    
+        
         $("#todoList").append('<input type="checkbox" id="todoItem"/> ' + todoTitle + '<br />');
         $("#newTodo").val("");
     },
 
+    checkItem: function(){
+        if ($('#todoItem').is(':checked')){
+            this.addClass("completed");
+        }
+    },
     deleteTodo: function(){
-  
+        $("#todoItem").on("click", function() {
+            $(".checkbox input:checked").parent().remove();
+          });
         
     }
 
