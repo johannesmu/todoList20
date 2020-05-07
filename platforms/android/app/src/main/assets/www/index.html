@@ -5,28 +5,25 @@
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
         <script src="js/jquery-3.5.0.min.js"></script>
-        <script src="js/jquery.mobile-1.4.5.min.js"></script>     
+        <!-- <script src="js/jquery.mobile-1.4.5.min.js"></script> -->     
         <link rel="stylesheet" type="text/css" href="css/index.css">
-
         <title>To Do!</title>
     </head>
-    <body>
-        <header>
-            <h1>To Do App!</h1>
+    <body class="app-view">
+        <header class="app-header">
+            <!-- <h1>To Do App!</h1> -->
+            <h1>To do</h1>
+            <form id="todo-form">
+                <input name="whatTodo" type="text" placeholder="what do you need to do?">
+                <button type="submit">&plus;</button>
+            </form>
         </header>
         <div data-role="page" class="app">
-           <div id="todoList">
-               
-           </div>
+           <ul id="todo-list">
+
+           </ul>
         </div>
-        <footer>
-            <input id="newTask" placeholder="What do you need to do?">
-            <button id="addButton" class="ui-btn ui-shadow">Add Task</button>
-        </footer>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
-        <script type="text/javascript">
-
-        </script>
     </body>
 </html>

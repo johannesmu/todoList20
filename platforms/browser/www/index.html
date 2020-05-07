@@ -9,21 +9,21 @@
         <link rel="stylesheet" type="text/css" href="css/index.css">
         <title>To Do!</title>
     </head>
-    <body>
-        <header>
-            <h1>To Do App</h1>
-        </header>
-        <div data-role="page" class="app">
-            <ul id="todo-list">
- 
-            </ul>
-         </div>
-        <footer>
-            <form id="todoForm">
-                <input id="whatTodo" placeholder="What do you need to do?">
-                <br />
+    <body class="app-view">
+        <header class="app-header">
+            <!-- <h1>To Do App!</h1> -->
+            <h1>To do</h1>
+            <form id="todo-form">
+                <input name="whatTodo" type="text" placeholder="what do you need to do?">
                 <button type="submit">&plus;</button>
             </form>
+        </header>
+        <div data-role="page" class="app">
+           <ul id="todo-list">
+
+           </ul>
+        </div>
+        <footer>
         </footer>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>

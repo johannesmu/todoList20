@@ -1,0 +1,84 @@
+:root {
+    --primary: #68ade9;
+    --primary-darker: #165e9c;
+    --primary-lighter: #bcdbf5;
+    --secondary: #9ebdfa;
+    --secondary-darker: #062d79;
+    --tertiary: #281c38;
+    --font-size: 20pt;
+}
+  
+.app-view {
+    min-height: 100vh;
+    margin: 0;
+    background-color: var(--primary);
+    font-size: var(--font-size);
+    
+}
+.app-header {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 0.5em;
+
+    background-color: var(--primary-darker);
+    color: var(--primary-light);
+}
+.app-header h1 {
+    font-size: var(--main-font-size);
+    margin: 0;
+    padding: 0 0.5em;
+}
+#todo-form {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    margin-top: 0.1rem;
+}
+#todo-form input {
+    flex: 1;
+    padding: 0.5em;
+    font-size: 1.1rem;
+}
+#todo-form button {
+    min-width: 3em;
+    padding: 0.2em;
+    font-size: 1.2rem;
+    color: var(--primary-lighter);
+    background-color: var(--primary-darker);
+    border-color: var(--primary-darker);
+}
+#todo-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+#todo-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+    background-color: var(--primary-darker);
+    border-bottom: 1px solid var(--tertiary);
+
+}
+#todo-list li button {
+    padding: 0.2rem;
+    font-size: 16pt;
+}
+/* creates a checkbox that is unchecked */
+#todo-list li[data-status="false"]::before {
+    content: "\2610";
+    font-size: 18pt;
+}
+/* when the status is set to true, the checkbox is checked */
+#todo-list li[data-status="true"]::before {
+    content: "\2611";
+    font-size: 18pt;
+}
+/*  also when the status is set to true, the font gets a line-through 
+    so that it looks like someone crossed it over */
+#todo-list li[data-status="true"] label {
+    text-decoration: line-through;
+}

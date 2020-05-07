@@ -1,139 +1,123 @@
+
 var app = {
     // Application Constructor
     initialize: function() {
-
-
+ 
+        
         // select the todoList element for the list view
         this.listView = $('#todo-list');
-        // handle click events, 
+        // handle click events on the tasks and the delete button
         $(this.listView).click((event) => {
-
             let action = $(event.target).data('action');
-            // if the user clicks on the label element
+            // if the user clicks on the list item (the task)
             if( action == undefined ) {
                 action = $(event.target).parents('li').data('action');
             }
             let id = $(event.target).data('id');
-            // if the user clicks on the label element
+            // if the user clicks on the list item (the task)
             if( id == undefined ) {
                 id = $(event.target).parents('li').data('id');
             }
             if( action == 'status' ) {
+                // 
                 this.changeStatus(id);
+                //render the list again in order to update it 
                 this.renderItems();
             }
             if( action == 'delete' ) {
+                // if the delete button is pressed, call the delete task function 
+                // that removes the task from the array
+                // with the id of that task
                 this.deleteTodo(id);
+                // render the list again to remove it from the list as well
                 this.renderItems();
             }
         });
-
-        // select the form element with the user input and the add todo button
-        this.form = $('#todoForm');
-
+        // select the form element, in which the input field 
+        // and the add task button exists
+        this.form = $('#todo-form');
         // the click event when a user clicks the add task button
+        // gets the string of text from the input field "whatTodo"
+        // and calls the function that creates a new task
         this.form.submit( (event) => {
             event.preventDefault();
             const data = new FormData(event.target);
             const name = data.get('whatTodo');
-            // call the function that creates a new task
-            this.addTodo(name);
-            // empty the input
+            // call the function that creates a new todo list item
+            this.addTodo( name );
+            // empty the input field so it's ready for a new task
             event.target.reset();
-        });
-       
+        })
         this.renderItems();
     },
-
-    // array to store all the tasks 
-    todoList: [],
-
-    //add task to todoList function. 
-    //Create a new task, add it to the array and then render a new list. 
-    addTodo: function(itemName){
-
-        // create unique id for item using timestamp
-        const itemId = new Date().getTime();
  
+    // the array that stores the list items in the todo list
+    todoList: [],
+ 
+    addTodo: function(itemName){
+        // all tasks needs a unique id, timestamps ensures that
+        const itemId = new Date().getTime();
         // create the todo item
         // it needs the previously created id, a name and status
         // set status to false because by default a task should not be completed
         const item = { id: itemId, name: itemName, status: false };
- 
-        // put it in the beginning of the array
-        // so that it automatically shows up on top of the list
-        this.todoList.unshift(item);
-        // render the updated list of tasks
+        // add it to the array
+        // using unshift so it automatically ends up on top of the list when it renders 
+        this.todoList.unshift( item );
+        // call the renderItems function, which creates the todo list
         this.renderItems();
     },
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    //delete a task from the todolist
-    deleteTodo: function(itemId){
-        // loop though the todoList array
-        // until the correct itemId is found
-        // splice it out of the array 
+ 
+    deleteTodo: function( itemId ){
+        // loop though the array
+        // looking for the item that has the itemId passed in this function
+        // splice it out of the array so it disappears from the list. 
         this.todoList.forEach( (item, index ) => {
             if( item.id == itemId ) {
                this.todoList.splice( index, 1 );
             }
         });
     },
-    //this function will clear the list of todo's and add them again, to update the user interface
-    renderItems: function() {
-        // empty the list view
-        $(this.listView).empty();
-        // loop through all the items in the todoList array
+ 
+    changeStatus: function( itemId ) {
+        // loop through the array, same principle as deleteTodo
+        // looking for the item that was pressed
+        // once found, change its status
         this.todoList.forEach( (item) => {
-            // template for each item
+            if( item.id == itemId ) {
+                // every click the status is simply changed
+                // if an incompleted task is pressed, its changed from false to true
+                // vice versa for a completed task that needs to be set to incomplete
+                item.status = (item.status) ? false : true;
+            }
+        });
+    },
+ 
+ 
+    renderItems: function() {
+        // start by clearing out the old list 
+        $(this.listView).empty();
+        // then loop through all items in the array
+        // (all the tasks in the list)
+        this.todoList.forEach( (item) => {
+            // Put the data from each item into a template 
+            // also give the delete button the item's id, for the delete function
             const ItemView =    
             `<li 
                 data-status="${item.status}" 
                 data-id="${item.id}" 
                 data-action="status">
                 <label>${item.name}</label>
-             <button type="button" data-id="${item.id}" data-action="delete">
+            <button type="button" data-id="${item.id}" data-action="delete">
                 &times;
             </button>
             </li>`;
-            // add it to list view
+            // add the template that has the data added to it into the list view
             $(this.listView).append(ItemView);
         });
-        
-    },
-    //change between true/false to be able to toggle whether a task has been completed or not
-    changeStatus: function( itemId ) {
-        // loop through the array to find the id and change its status
-        this.todoList.forEach( (item) => {
-            if( item.id == itemId ) {
-                // if item status is true change to false, if false to true
-                item.status = (item.status) ? false : true;
-            }
-        });
-    },
-
-
-
-
-
-
-
+    }
+ 
     
-};
-
-app.initialize();
+ };
+ 
+ app.initialize();
