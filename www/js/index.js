@@ -126,31 +126,31 @@ var app = {
  
     // create a file to save into when app is paused
     deviceReady: function () {
-        alert("deviceReady");
+        //alert("deviceReady");
         this.loadList();
     },
     pauseListener: function(){
-        alert("paused");
+        //alert("paused");
         this.saveList(this.todoList);
     },
     resumeListener: function(){
-        alert("resumed");
+        //alert("resumed");
         this.loadList();
     },
 
     // save to local storage
     saveList: function(todoList){
-        NativeStorage.setItem("todoList", todoList, this.setSuccess, this.setError);
+        let jsonList = todoList.stringify();
+        NativeStorage.setItem("todoList", jsonList, this.setSuccess, this.setError);
     },
 
     // load from local storage
     loadList: function(){
         // for each item in the list, get them and parse them back into objects
         NativeStorage.getItem("todoList", this.setSuccess, this.setError);
+        
     },
-    setSuccess: function () {
-        NativeStorage.getItem("todoList", this.getSuccess, this.getError);
-    },
+
     
  };
  
