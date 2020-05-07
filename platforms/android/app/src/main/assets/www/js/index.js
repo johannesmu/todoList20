@@ -2,7 +2,13 @@
 var app = {
     // Application Constructor
     initialize: function() {
- 
+
+        //Cordova specific events
+        document.addEventListener('deviceready', this.deviceReady.bind(this), false);
+        document.addEventListener('pause', this.pauseListener.bind(this), false);
+        document.addEventListener('resume', this.resumeListener.bind(this), false); 
+
+
         
         // select the todoList element for the list view
         this.listView = $('#todo-list');
@@ -50,7 +56,7 @@ var app = {
         })
         this.renderItems();
     },
- 
+
     // the array that stores the list items in the todo list
     todoList: [],
  
@@ -66,6 +72,7 @@ var app = {
         this.todoList.unshift( item );
         // call the renderItems function, which creates the todo list
         this.renderItems();
+        this.saveList(this.todoList);
     },
  
     deleteTodo: function( itemId ){
@@ -115,8 +122,32 @@ var app = {
             // add the template that has the data added to it into the list view
             $(this.listView).append(ItemView);
         });
-    }
+    },
  
+    // create a file to save into when app is paused
+    deviceReady: function () {
+        alert("deviceReady");
+        this.loadList();
+    },
+    pauseListener: function(){
+        alert("paused");
+        this.saveList(this.todoList);
+    },
+    resumeListener: function(){
+        alert("resumed");
+        this.loadList();
+    },
+
+    // save to local storage
+    saveList: function(todoList){
+        NativeStorage.setItem("todoList", todoList, this.setSuccess, this.setError);
+    },
+
+    // load from local storage
+    loadList: function(){
+        // for each item in the list, get them and parse them back into objects
+        NativeStorage.getItem("todoList", this.setSuccess, this.setError);
+    },
     
  };
  
