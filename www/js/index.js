@@ -8,7 +8,7 @@ var app = {
         document.addEventListener('resume', this.resumeListener.bind(this), false); 
         
         // select the list view element
-        this.listView = $('#todolist');
+        this.listView = $('#listview');
         // handle click
         $(this.listView).click((event) => {
             let action = $(event.target).data('action');
@@ -80,7 +80,7 @@ var app = {
     },
 
     // store todo items in an array
-    todoList: [],
+    todoList: new Array(),
 
     addTodo: function(itemName){
         // create unique id for item using timestamp

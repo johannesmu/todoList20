@@ -1,0 +1,81 @@
+:root {
+  --primary: hsla(189, 80%, 44%, 1);
+  --primary-dark:  hsla(189, 80%, 15%, 1);
+  --primary-light: hsla(189, 80%, 75%, 1);
+  --secondary: hsla(309, 80%, 44%, 1);
+  --secondary-dark: hsla(309, 80%, 15%, 1);
+  --secondary-light: hsla(309, 80%, 95%, 1);
+  --tertiary: hsla(69, 80%, 50%, 1);
+  --tertiary-dark: hsla(69, 80%, 15%, 1);
+  --tertiary-light: hsla(69, 80%, 75%, 1);
+  --main-font-size: 14pt;
+  --main-font-family: arial,sans-serif;
+}
+.app-view {
+  min-height: 100vh;
+  margin: 0;
+  background-color: var(--primary-light);
+  font-family: var(--main-font-family);
+  font-size: var(--main-font-size);
+}
+.app-header {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 0.2em;
+  background-color: var(--primary-dark);
+  color: var(--primary-light);
+}
+.app-header h1 {
+  font-size: var(--main-font-size);
+  margin: 0;
+  padding: 0 0.5em;
+}
+#todo-form {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  margin-top: 0.1rem;
+}
+#todo-form input {
+  flex: 1;
+  padding: 0.2em;
+  font-size: 1.1rem;
+}
+#todo-form button {
+  min-width: 3em;
+  padding: 0.2em;
+  font-size: 1.2rem;
+  color: var(--primary-light);
+  background-color: var(--primary-dark);
+  border-color: var(--primary-dark);
+}
+#todolist {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+#todolist li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+  background-color: var(--secondary-light);
+  border-bottom: 1px solid var(--tertiary-dark);
+}
+#todolist li button {
+  padding: 0.2rem;
+  font-size: 16pt;
+}
+#todolist li[data-status="false"]::before {
+  content: "\2610";
+  font-size: 18pt;
+}
+#todolist li[data-status="true"]::before {
+  content: "\2611";
+  font-size: 18pt;
+}
+#todolist li[data-status="true"] label {
+  text-decoration: line-through;
+}
