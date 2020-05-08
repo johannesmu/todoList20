@@ -129,7 +129,7 @@ var app = {
     // when app starts, load items if existing
     deviceReady: function () {
         //alert("deviceReady");
-        //this.loadList();
+        this.loadList();
     },
     // when the app is paused, save the list
     pauseListener: function(){
@@ -158,9 +158,7 @@ var app = {
         // getItem returns an object, so it needs to be assigned to a variable.
         // use the same reference string as when the variable was saved, so that the same
         // variable can be loaded. In my case the array todoList.
-        var todoList = NativeStorage.getItem("todoList", this.getSuccess, this.getError);
-        console.log(todoList);
-
+        NativeStorage.getItem("todoList", this.getSuccess, this.getError);
     },
 
     // cordova-plugin-nativeStorage functions 
@@ -174,15 +172,21 @@ var app = {
         console.log(error.code);
         if (error.exception !== "") console.log(error.exception);
     },
+
+
+
     // logs the object that has successfully been loaded
     getSuccess: function (obj) {
         console.log(obj);
+        
     },
     // logs an error code in the console if something goes wrong with loading
     getError: function (error) {
         console.log(error.code);
         if (error.exception !== "") console.log(error.exception);
     },
+
+
     // not in use yet. 
     // logs a success message in the console when something has been deleted 
     removeSuccess: function () {
