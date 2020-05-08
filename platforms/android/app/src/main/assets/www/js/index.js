@@ -12,6 +12,7 @@ var app = {
         
         // select the todoList element for the list view
         this.listView = $('#todo-list');
+
         // handle click events on the tasks and the delete button
         $(this.listView).click((event) => {
             let action = $(event.target).data('action');
@@ -41,7 +42,7 @@ var app = {
         });
         // select the form element, in which the input field 
         // and the add task button exists
-        this.form = $('#todo-form');
+        this.form = $('#todoForm');
         // the click event when a user clicks the add task button
         // gets the string of text from the input field "whatTodo"
         // and calls the function that creates a new task
@@ -50,6 +51,7 @@ var app = {
             const data = new FormData(event.target);
             const name = data.get('whatTodo');
             // call the function that creates a new todo list item
+            // with the name taken from the whatTodo input
             this.addTodo( name );
             // empty the input field so it's ready for a new task
             event.target.reset();
@@ -124,18 +126,21 @@ var app = {
         });
     },
  
-    // create a file to save into when app is paused
+    // when app starts, load items if existing
     deviceReady: function () {
-        alert("deviceReady");
+        //alert("deviceReady");
         this.loadList();
     },
+    // when the app is paused, save the list
     pauseListener: function(){
-        alert("paused");
+        //alert("paused");
         this.saveList(this.todoList);
     },
+    // when the app is resumed, load the lo
     resumeListener: function(){
-        alert("resumed");
+        //alert("resumed");
         this.loadList();
+        this.renderItems();
     },
 
     // save to local storage
@@ -145,9 +150,34 @@ var app = {
 
     // load from local storage
     loadList: function(){
-        // for each item in the list, get them and parse them back into objects
-        NativeStorage.getItem("todoList", this.setSuccess, this.setError);
+        // get the jsonList back and parse it back into a todoList
+        todoList = NativeStorage.getItem("todoList", this.setSuccess, this.setError);
+        console.log(todoList);
+        return this.todoList;
     },
+    setSuccess: function (obj) {
+        console.log(obj);
+    },
+    setError: function (error) {
+        console.log(error.code);
+        if (error.exception !== "") console.log(error.exception);
+    },
+    getSuccess: function (obj) {
+        console.log(obj.name);
+        NativeStorage.remove("todoList", this.removeSuccess, this.removeError);
+    },
+    getError: function (error) {
+        console.log(error.code);
+        if (error.exception !== "") console.log(error.exception);
+    },
+    removeSuccess: function () {
+        console.log("Removed");
+    },
+    removeError: function (error) {
+        console.log(error.code);
+        if (error.exception !== "") console.log(error.exception);
+    }
+
     
  };
  

@@ -30,24 +30,24 @@
     margin: 0;
     padding: 0 0.5em;
 }
-#todo-form {
+#todoForm {
     flex: 1;
     display: flex;
     flex-direction: row;
     margin-top: 0.1rem;
 }
-#todo-form input {
+#todoForm input {
     flex: 1;
     padding: 0.5em;
     font-size: 1.1rem;
 }
-#todo-form button {
+#todoForm button {
     min-width: 3em;
     padding: 0.2em;
     font-size: 1.2rem;
     color: var(--primary-lighter);
-    background-color: var(--primary-darker);
-    border-color: var(--primary-darker);
+    background-color: var(--primary);
+    border-color: var(--primary-lighter);
 }
 #todo-list {
     list-style: none;
