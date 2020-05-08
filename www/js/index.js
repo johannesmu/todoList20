@@ -129,7 +129,7 @@ var app = {
     // when app starts, load items if existing
     deviceReady: function () {
         //alert("deviceReady");
-        this.loadList();
+        //this.loadList();
     },
     // when the app is paused, save the list
     pauseListener: function(){
@@ -138,22 +138,35 @@ var app = {
     },
     // when the app is resumed, load the lo
     resumeListener: function(){
-        //alert("resumed");
+        alert("resumed");
         this.loadList();
-        this.renderItems();
+        //this.renderItems();
     },
 
     // save to local storage
     saveList: function(todoList){
+        // cordova-plugin-nativeStorage function
+        // need a unique reference string for each variable saved, 
+        // in my case "todoList" for variable todoList (which is an array)
+        
         NativeStorage.setItem("todoList", todoList, this.setSuccess, this.setError);
     },
 
     // load from local storage
     loadList: function(){
-        // get the jsonList back and parse it back into a todoList
-        this.todoList = NativeStorage.getItem("todoList", this.getSuccess, this.getError);
+        // cordova-plugin-nativeStorage function
+        // getItem returns an object, so it needs to be assigned to a variable.
+        // use the same reference string as when the variable was saved, so that the same
+        // variable can be loaded. In my case the array todoList.
+        var todoList = NativeStorage.getItem("todoList", this.getSuccess, this.getError);
+        console.log(todoList);
+
     },
+
+    // cordova-plugin-nativeStorage functions 
     setSuccess: function (obj) {
+        // console.log(obj.name) is what this function normally looks like
+        // but i do this instead to show the content of the array. 
         console.log(obj);
     },
     setError: function (error) {
@@ -161,7 +174,7 @@ var app = {
         if (error.exception !== "") console.log(error.exception);
     },
     getSuccess: function (obj) {
-        console.log(obj.name);
+        //console.log(obj);
         //this.todoList = obj;
     },
     getError: function (error) {
