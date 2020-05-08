@@ -162,7 +162,7 @@ var app = {
     },
     getSuccess: function (obj) {
         console.log(obj.name);
-        
+        //this.todoList = obj;
     },
     getError: function (error) {
         console.log(error.code);
