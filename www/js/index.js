@@ -124,15 +124,17 @@ var app = {
         });
     },
  
-    // create a file to save into when app is paused
+    // when app starts, load items if existing
     deviceReady: function () {
         //alert("deviceReady");
         this.loadList();
     },
+    // when the app is paused, save the list
     pauseListener: function(){
         //alert("paused");
         this.saveList(this.todoList);
     },
+    // when the app is resumed, load the lo
     resumeListener: function(){
         //alert("resumed");
         this.loadList();
