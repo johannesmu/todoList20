@@ -178,7 +178,7 @@ var app = {
     // logs the object that has successfully been loaded
     getSuccess: function (obj) {
         console.log(obj);
-        
+        this.todoList = obj;
     },
     // logs an error code in the console if something goes wrong with loading
     getError: function (error) {
