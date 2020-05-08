@@ -158,7 +158,13 @@ var app = {
         // getItem returns an object, so it needs to be assigned to a variable.
         // use the same reference string as when the variable was saved, so that the same
         // variable can be loaded. In my case the array todoList.
-        NativeStorage.getItem("todoList", this.getSuccess, this.getError);
+        NativeStorage.getItem("todoList", this.loadSuccess, this.getError);
+    },
+
+    loadSuccess: (obj) => {
+        console.log(obj);
+        this.app.todoList = obj;
+        this.app.renderItems();
     },
 
     // cordova-plugin-nativeStorage functions 
