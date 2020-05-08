@@ -151,9 +151,7 @@ var app = {
     // load from local storage
     loadList: function(){
         // get the jsonList back and parse it back into a todoList
-        todoList = NativeStorage.getItem("todoList", this.setSuccess, this.setError);
-        console.log(todoList);
-        return this.todoList;
+        this.todoList = NativeStorage.getItem("todoList", this.getSuccess, this.getError);
     },
     setSuccess: function (obj) {
         console.log(obj);
@@ -164,7 +162,7 @@ var app = {
     },
     getSuccess: function (obj) {
         console.log(obj.name);
-        NativeStorage.remove("todoList", this.removeSuccess, this.removeError);
+        
     },
     getError: function (error) {
         console.log(error.code);
