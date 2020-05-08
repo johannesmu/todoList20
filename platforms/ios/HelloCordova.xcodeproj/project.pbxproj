@@ -14,7 +14,11 @@
 		302D95F114D2391D003F00A1 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 302D95EF14D2391D003F00A1 /* MainViewController.m */; };
 		302D95F214D2391D003F00A1 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 302D95F014D2391D003F00A1 /* MainViewController.xib */; };
 		6AFF5BF91D6E424B00AB3073 /* CDVLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AFF5BF81D6E424B00AB3073 /* CDVLaunchScreen.storyboard */; };
+<<<<<<< HEAD
 		7C06D0108C3949E580D91ABD /* NativeStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C03BA7F0A049F28E0CDBC6 /* NativeStorage.m */; };
+=======
+		9A601B0CC8654733B6CEE2B4 /* NativeStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D8CFFA46694D5E816FA79A /* NativeStorage.m */; };
+>>>>>>> 826daff974599bd9ddcf2062cc5b450f9324b456
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,8 +66,13 @@
 		EB87FDF41871DAF40020F90C /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = ../../config.xml; sourceTree = "<group>"; };
 		ED33DF2A687741AEAF9F8254 /* Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Bridging-Header.h"; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = "HelloCordova/config.xml"; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		53C03BA7F0A049F28E0CDBC6 /* NativeStorage.m */ = {isa = PBXFileReference; name = "NativeStorage.m"; path = "cordova-plugin-nativestorage/NativeStorage.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
 		2C2E6F3E96E04C14996A1633 /* NativeStorage.h */ = {isa = PBXFileReference; name = "NativeStorage.h"; path = "cordova-plugin-nativestorage/NativeStorage.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+=======
+		77D8CFFA46694D5E816FA79A /* NativeStorage.m */ = {isa = PBXFileReference; name = "NativeStorage.m"; path = "cordova-plugin-nativestorage/NativeStorage.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		817D4EE0676E4993B44169C7 /* NativeStorage.h */ = {isa = PBXFileReference; name = "NativeStorage.h"; path = "cordova-plugin-nativestorage/NativeStorage.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+>>>>>>> 826daff974599bd9ddcf2062cc5b450f9324b456
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,8 +177,13 @@
 		307C750510C5A3420062BCA9 /* Plugins */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
 				53C03BA7F0A049F28E0CDBC6 /* NativeStorage.m */,
 				2C2E6F3E96E04C14996A1633 /* NativeStorage.h */,
+=======
+				77D8CFFA46694D5E816FA79A /* NativeStorage.m */,
+				817D4EE0676E4993B44169C7 /* NativeStorage.h */,
+>>>>>>> 826daff974599bd9ddcf2062cc5b450f9324b456
 			);
 			name = Plugins;
 			path = "HelloCordova/Plugins";
@@ -294,7 +308,11 @@
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* AppDelegate.m in Sources */,
 				302D95F114D2391D003F00A1 /* MainViewController.m in Sources */,
+<<<<<<< HEAD
 				7C06D0108C3949E580D91ABD /* NativeStorage.m in Sources */,
+=======
+				9A601B0CC8654733B6CEE2B4 /* NativeStorage.m in Sources */,
+>>>>>>> 826daff974599bd9ddcf2062cc5b450f9324b456
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

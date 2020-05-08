@@ -1,7 +1,10 @@
+
 var app = {
     // Application Constructor
     initialize: function() {
+ 
         
+<<<<<<< HEAD
         //Cordova specific events
         document.addEventListener('deviceready', this.deviceReady.bind(this), false);
         document.addEventListener('pause', this.pauseListener.bind(this), false);
@@ -13,15 +16,28 @@ var app = {
         $(this.listView).click((event) => {
             let action = $(event.target).data('action');
             // if the user clicks on the label element
+=======
+        // select the todoList element for the list view
+        this.listView = $('#todo-list');
+        // handle click events on the tasks and the delete button
+        $(this.listView).click((event) => {
+            let action = $(event.target).data('action');
+            // if the user clicks on the list item (the task)
+>>>>>>> 826daff974599bd9ddcf2062cc5b450f9324b456
             if( action == undefined ) {
                 action = $(event.target).parents('li').data('action');
             }
             let id = $(event.target).data('id');
+<<<<<<< HEAD
             // if the user clicks on the label element
+=======
+            // if the user clicks on the list item (the task)
+>>>>>>> 826daff974599bd9ddcf2062cc5b450f9324b456
             if( id == undefined ) {
                 id = $(event.target).parents('li').data('id');
             }
             if( action == 'status' ) {
+<<<<<<< HEAD
                 this.changeStatus(id);
                 this.renderItems();
             }
@@ -45,13 +61,57 @@ var app = {
         
         //load the data
         this.todoList = this.loadItems();
+=======
+                // 
+                this.changeStatus(id);
+                //render the list again in order to update it 
+                this.renderItems();
+            }
+            if( action == 'delete' ) {
+                // if the delete button is pressed, call the delete task function 
+                // that removes the task from the array
+                // with the id of that task
+                this.deleteTodo(id);
+                // render the list again to remove it from the list as well
+                this.renderItems();
+            }
+        });
+        // select the form element, in which the input field 
+        // and the add task button exists
+        this.form = $('#todo-form');
+        // the click event when a user clicks the add task button
+        // gets the string of text from the input field "whatTodo"
+        // and calls the function that creates a new task
+        this.form.submit( (event) => {
+            event.preventDefault();
+            const data = new FormData(event.target);
+            const name = data.get('whatTodo');
+            // call the function that creates a new todo list item
+            this.addTodo( name );
+            // empty the input field so it's ready for a new task
+            event.target.reset();
+        })
+>>>>>>> 826daff974599bd9ddcf2062cc5b450f9324b456
         this.renderItems();
     },
-
-    deviceReady: function(){
-        //create the file if it does not exist, then read its content. 
-       
+ 
+    // the array that stores the list items in the todo list
+    todoList: [],
+ 
+    addTodo: function(itemName){
+        // all tasks needs a unique id, timestamps ensures that
+        const itemId = new Date().getTime();
+        // create the todo item
+        // it needs the previously created id, a name and status
+        // set status to false because by default a task should not be completed
+        const item = { id: itemId, name: itemName, status: false };
+        // add it to the array
+        // using unshift so it automatically ends up on top of the list when it renders 
+        this.todoList.unshift( item );
+        // call the renderItems function, which creates the todo list
+        this.renderItems();
     },
+<<<<<<< HEAD
     
     createFile: function() {
         var type = window.TEMPORARY;
@@ -106,10 +166,34 @@ var app = {
         this.todoList.forEach( (item) => {
             if( item.id == itemId ) {
                 // if item status is true change to false, if false to true
+=======
+ 
+    deleteTodo: function( itemId ){
+        // loop though the array
+        // looking for the item that has the itemId passed in this function
+        // splice it out of the array so it disappears from the list. 
+        this.todoList.forEach( (item, index ) => {
+            if( item.id == itemId ) {
+               this.todoList.splice( index, 1 );
+            }
+        });
+    },
+ 
+    changeStatus: function( itemId ) {
+        // loop through the array, same principle as deleteTodo
+        // looking for the item that was pressed
+        // once found, change its status
+        this.todoList.forEach( (item) => {
+            if( item.id == itemId ) {
+                // every click the status is simply changed
+                // if an incompleted task is pressed, its changed from false to true
+                // vice versa for a completed task that needs to be set to incomplete
+>>>>>>> 826daff974599bd9ddcf2062cc5b450f9324b456
                 item.status = (item.status) ? false : true;
             }
         });
     },
+<<<<<<< HEAD
 
     saveItems: (list) => {
         try {
@@ -145,6 +229,18 @@ var app = {
         // loop through all the items in the todoList array
         this.todoList.forEach( (item) => {
             // template for each item
+=======
+ 
+ 
+    renderItems: function() {
+        // start by clearing out the old list 
+        $(this.listView).empty();
+        // then loop through all items in the array
+        // (all the tasks in the list)
+        this.todoList.forEach( (item) => {
+            // Put the data from each item into a template 
+            // also give the delete button the item's id, for the delete function
+>>>>>>> 826daff974599bd9ddcf2062cc5b450f9324b456
             const ItemView =    
             `<li 
                 data-status="${item.status}" 
@@ -155,6 +251,7 @@ var app = {
                 &times;
             </button>
             </li>`;
+<<<<<<< HEAD
             // add it to list view
             $(this.listView).append(ItemView);
         });
@@ -162,7 +259,14 @@ var app = {
         this.saveItems(this.todoList);
     }
 
+=======
+            // add the template that has the data added to it into the list view
+            $(this.listView).append(ItemView);
+        });
+    }
+ 
+>>>>>>> 826daff974599bd9ddcf2062cc5b450f9324b456
     
-};
-
-app.initialize();
+ };
+ 
+ app.initialize();
